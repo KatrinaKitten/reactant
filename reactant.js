@@ -1,11 +1,11 @@
 /**
- * Reactant v0.1.0 - Created by Katrina Scialdone
+ * Reactant v0.1.1 - Created by Katrina Scialdone
  * 
  * Heavily based on Github's Catalyst framework, and designed to be a hyper-lightweight, pure-JS 
  *  alternative to Catalyst's core functionality.
  * https://github.github.io/catalyst
  */
-export const version = "0.1.0"
+export const version = "0.1.1"
 
 /** 
  * Define and register a custom element.
@@ -42,9 +42,6 @@ export default function reactant(elementClass, { tagName, templateName, useShado
       else this[attr] = descriptor.get.call(this)
     }
 
-    // Call through to the element's defined connectedCallback
-    connect?.call(this)
-
     // Link targets
     for(let target of targets) {
       let discover = this[target] instanceof Array ? findTargets : findTarget
@@ -53,6 +50,9 @@ export default function reactant(elementClass, { tagName, templateName, useShado
         get() { return discover(this, target) }
       })
     }
+
+    // Call through to the element's defined connectedCallback
+    connect?.call(this)
 
     // Set up actions
     const observer = new MutationObserver(mutations => {
