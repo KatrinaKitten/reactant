@@ -1,11 +1,11 @@
-# Reactant v0.1.0
-*Created by Katrina Scialdone*
+# Reactant 
+[![GitHub version](https://badge.fury.io/gh/KatrinaKitten%2Freactant.svg)](https://badge.fury.io/gh/KatrinaKitten%2Freactant)
 
 Reactant is a lightweight framework for creating web applications using the Web Components API. It is heavily inspired by Github's [Catalyst](https://github.github.io/catalyst) framework, and designed to be a hyper-lightweight, pure-JS alternative to Catalyst's core functionality. It weighs in at only 4.3kB minified (1.4kB gzipped), comes in a single `.js` file, and requires no preprocessors such as Typescript or Babel.
 
 Since Reactant doesn't rely on Typescript decorators, the resulting API is slightly "uglier" than Catalyst, but doesn't require any pre-compilation or need heavy amounts of boilerplate to work around said pre-compilation. When the [TC39 decorators proposal](https://github.com/tc39/proposal-decorators) is implemented in modern browsers, this whole process will get a lot cleaner.
 
-**Note: While you're welcome to use Reactant in your own projects, I don't recommend using it for large-scale or income-critical projects at this stage. I am a lone developer and created Reactant mostly for my own use, and I make no guarantees about regular maintenance or bulletproof code at this point in time. If you like the workflow you see here, I recommend checking out Catalyst instead.**
+> Note: While you're welcome to use Reactant in your own projects, I don't recommend using it for large-scale or income-critical projects at this stage. I am a lone developer and created Reactant mostly for my own use, and I make no guarantees about regular maintenance or bulletproof code at this point in time. If you like the workflow you see here, I recommend checking out Catalyst instead.
 
 ## Installation
 You can include `reactant.min.js` in your project directly, or acquire it through a CDN like JSDelivr. Make sure you use `type="module"` to properly load it, or import it using the Javascript `import` declaration.
