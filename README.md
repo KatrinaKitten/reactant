@@ -8,7 +8,7 @@ Since Reactant doesn't rely on Typescript decorators, the resulting API is sligh
 > Note: While you're welcome to use Reactant in your own projects, I don't recommend using it for large-scale or income-critical projects at this stage. I am a lone developer and created Reactant mostly for my own use, and I make no guarantees about regular maintenance or bulletproof code at this point in time. If you like the workflow you see here, I recommend checking out Catalyst instead.
 
 ## Installation
-You can include `reactant.min.js` in your project directly, or acquire it through a CDN like JSDelivr. Make sure you use `type="module"` to properly load it, or import it using the Javascript `import` declaration.
+You can include `reactant.min.js` in your project directly, or acquire it through a CDN like JSDelivr. Make sure you use `type="module"` to properly load it, and import it using the Javascript `import` declaration.
 ```html
 <script type="module">
   import reactant from "https://cdn.jsdelivr.net/gh/KatrinaKitten/reactant@0.1.2/reactant.min.js";
