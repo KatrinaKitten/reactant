@@ -1,28 +1,37 @@
 /**
- * Reactant v0.1.1 - Created by Katrina Scialdone
+ * Reactant v0.1.2 - Created by Katrina Scialdone
  * 
  * Heavily based on Github's Catalyst framework, and designed to be a hyper-lightweight, pure-JS 
  *  alternative to Catalyst's core functionality.
  * https://github.github.io/catalyst
  */
-export const version = "0.1.1"
+export const version = "0.1.2"
 
 /** 
  * Define and register a custom element.
  * @param {{new(): HTMLElement}} elementClass The class to define as a custom element
  * @param {string} tagName The tag name for the custom element (defaults to generating from the class name)
  * @param {string} templateName The name attribute of the desired template element (defaults to the custom element's tag name)
- * @param {boolean} useShadowRoot If `true`, puts the template in the element's shadow DOM instead of as direct children (default: `true`)
+ * @param {string} templateHTML The inner HTML to use as a template instead of a <template> element (default: undefined)
+ * @param {boolean} useShadowRoot If `true`, puts the template content in the element's shadow DOM instead of as direct children (default: `true`)
  * @param {string[]} attrs A list of property names to link as attributes
  * @param {string[]} targets A list of property names to link as targets
  */
-export default function reactant(elementClass, { tagName, templateName, useShadowRoot = true, attrs = [], targets = [] } = {}) {
+export default function reactant(elementClass, { tagName, templateName, templateHTML, useShadowRoot = true, attrs = [], targets = [] } = {}) {
   // Wrap the element's connectedCallback to perform needed initialization
   const connect = elementClass.prototype.connectedCallback
   elementClass.prototype.connectedCallback = function() {
-    // Attach the appropriate template if it exists
+    // Find or create the template
+    let templateElement
+    if(templateHTML) {
+      templateElement = document.createElement('template')
+      templateElement.innerHTML = templateHTML
+    } else {
+      templateElement = document.querySelector(`template[name="${templateName ?? this.constructor.tagName}"]`)
+    }
+
+    // Attach the template if it exists
     // Uses shadow root by default, unless the useShadowRoot option is true
-    let templateElement = document.querySelector(`template[name="${templateName ?? this.constructor.tagName}"]`)
     if(templateElement) {
       if(useShadowRoot) {
         this.attachShadow({ mode: 'open' })

@@ -10,7 +10,7 @@ Since Reactant doesn't rely on Typescript decorators, the resulting API is sligh
 ## Installation
 You can include `reactant.min.js` in your project directly, or acquire it through a CDN like JSDelivr. Make sure you use `type="module"` to properly load it, or import it using the Javascript `import` declaration.
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/gh/KatrinaKitten/reactant@0.1.1/reactant.min.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/KatrinaKitten/reactant@0.1.2/reactant.min.js"></script>
 ```
 
 ## Basic Custom Elements
@@ -39,6 +39,13 @@ If there's a `<template>` element with a `name` attribute matching the tag name,
 <template name="hello-world">
   <span>Hello, <slot>world</slot>!</span>
 </template>
+```
+
+Alternatively, you can define your template directly in Javascript using the `templateHTML` option. This is the recommended option for distributing components on their own.
+```js
+reactant(class HelloWorldElement extends HTMLElement {}, {
+  templateHTML: `<span>Hello, <slot>world</slot>!</span>`
+})
 ```
 
 ## Attrs
