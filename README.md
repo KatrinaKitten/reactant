@@ -10,7 +10,10 @@ Since Reactant doesn't rely on Typescript decorators, the resulting API is sligh
 ## Installation
 You can include `reactant.min.js` in your project directly, or acquire it through a CDN like JSDelivr. Make sure you use `type="module"` to properly load it, or import it using the Javascript `import` declaration.
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/gh/KatrinaKitten/reactant@0.1.2/reactant.min.js"></script>
+<script type="module">
+  import reactant from "https://cdn.jsdelivr.net/gh/KatrinaKitten/reactant@0.1.2/reactant.min.js";
+  // Your code here
+</script>
 ```
 
 ## Basic Custom Elements
